@@ -47,7 +47,7 @@ public class ReviewResourceIT {
 	}
 
 	@Test
-	public void insertShouldReturnUnauthorizedWhenNotValidToken() throws Exception {
+	public void insertShouldReturnUnauthorizedWhenNotValidToken() throws Exception {// quando não passar o token retornar não autorizado.
 
 		ReviewDTO reviewDTO = new ReviewDTO();
 		reviewDTO.setText("Gostei do filme!");
@@ -86,7 +86,7 @@ public class ReviewResourceIT {
 	}
 	
 	@Test
-	public void insertShouldInsertReviewWhenMemberAuthenticatedAndValidData() throws Exception {
+	public void insertShouldInsertReviewWhenMemberAuthenticatedAndValidData() throws Exception { // inserir com membros autenticados.
 		
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, memberUsername, memberPassword);
 		
@@ -119,7 +119,7 @@ public class ReviewResourceIT {
 	}
 
 	@Test
-	public void insertShouldReturnUnproccessableEntityWhenMemberAuthenticatedAndInvalidData() throws Exception {
+	public void insertShouldReturnUnproccessableEntityWhenMemberAuthenticatedAndInvalidData() throws Exception { //422 - membro só que o dado é inválido 
 		
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, memberUsername, memberPassword);
 		

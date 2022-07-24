@@ -42,7 +42,7 @@ public class GenreControllerIT {
 	}
 
 	@Test
-	public void findAllShouldReturnUnauthorizedWhenNotValidToken() throws Exception {
+	public void findAllShouldReturnUnauthorizedWhenNotValidToken() throws Exception { // se não informar o token retornar não autorizado
 
 		ResultActions result =
 				mockMvc.perform(get("/genres")
@@ -52,7 +52,7 @@ public class GenreControllerIT {
 	}
 	
 	@Test
-	public void findAllShouldReturnAllGenresWhenVisitorAuthenticated() throws Exception {
+	public void findAllShouldReturnAllGenresWhenVisitorAuthenticated() throws Exception { // algu´m autenticado retornar todos os generos
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, visitorUsername, visitorPassword);
 		
@@ -71,7 +71,7 @@ public class GenreControllerIT {
 	}
 	
 	@Test
-	public void findAllShouldReturnAllGenresWhenMemberAuthenticated() throws Exception {
+	public void findAllShouldReturnAllGenresWhenMemberAuthenticated() throws Exception { // retornar genero de usuários membros.
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, memberUsername, memberPassword);
 

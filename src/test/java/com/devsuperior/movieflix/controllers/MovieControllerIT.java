@@ -48,7 +48,7 @@ public class MovieControllerIT {
 	}
 
 	@Test
-	public void findByIdShouldReturnUnauthorizedWhenNoTokenGiven() throws Exception {
+	public void findByIdShouldReturnUnauthorizedWhenNoTokenGiven() throws Exception {// se não retornar o token - não autorizado
 
 		ResultActions result =
 				mockMvc.perform(get("/movies/{id}", existingId)
@@ -58,7 +58,7 @@ public class MovieControllerIT {
 	}	
 
 	@Test
-	public void findByIdShouldReturnMovieWhenUserVisitorAuthenticated() throws Exception {
+	public void findByIdShouldReturnMovieWhenUserVisitorAuthenticated() throws Exception { // retornar um filme quando o visior tiver autenticado
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, visitorUsername, visitorPassword);
 		
@@ -80,7 +80,7 @@ public class MovieControllerIT {
 	}
 
 	@Test
-	public void findByIdShouldReturnMovieWhenMemberAuthenticated() throws Exception {
+	public void findByIdShouldReturnMovieWhenMemberAuthenticated() throws Exception {// retornar o filme para usuários membros.
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, memberUsername, memberPassword);
 		
@@ -102,7 +102,7 @@ public class MovieControllerIT {
 	}
 
 	@Test
-	public void findByIdShouldReturnNotFoundWhenIdDoesNotExist() throws Exception {
+	public void findByIdShouldReturnNotFoundWhenIdDoesNotExist() throws Exception { // se passar um id que não eiste 
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, visitorUsername, visitorPassword);
 		
@@ -115,7 +115,7 @@ public class MovieControllerIT {
 	}
 	
 	@Test
-	public void findByGenreShouldReturnUnauthorizedWhenNoTokenGiven() throws Exception {
+	public void findByGenreShouldReturnUnauthorizedWhenNoTokenGiven() throws Exception { // passar um genero e volar os filmes páginado.
 
 		ResultActions result =
 				mockMvc.perform(get("/movies")
@@ -125,7 +125,7 @@ public class MovieControllerIT {
 	}
 
 	@Test
-	public void findByGenreShouldReturnOrderedPageWhenVisitorAuthenticated() throws Exception {
+	public void findByGenreShouldReturnOrderedPageWhenVisitorAuthenticated() throws Exception {// retornar pagina ordenada quando tiver um visitor autenticado.
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, visitorUsername, visitorPassword);
 
@@ -149,7 +149,7 @@ public class MovieControllerIT {
 	}
 
 	@Test
-	public void findByGenreShouldReturnOrderedPageWhenMemberAuthenticated() throws Exception {
+	public void findByGenreShouldReturnOrderedPageWhenMemberAuthenticated() throws Exception {// retornar pagina ordenada quando tiver um membro autenticado.
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, memberUsername, memberPassword);
 		
@@ -173,7 +173,7 @@ public class MovieControllerIT {
 	}
 
 	@Test
-	public void findByGenreShouldReturnFilteredMoviesWhenGenreIsInformed() throws Exception {
+	public void findByGenreShouldReturnFilteredMoviesWhenGenreIsInformed() throws Exception { // retornar filmes filtrados quamndo inormar genero.
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, visitorUsername, visitorPassword);
 
